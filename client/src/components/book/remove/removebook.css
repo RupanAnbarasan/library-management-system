@@ -1,0 +1,93 @@
+/* Common Styles */
+.remove-book-container {
+  max-width: 580px;
+  margin: 50px auto;
+  padding: 40px;
+ padding-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+.remove-book-input-res-container label {
+  font-weight: bold;
+}
+
+.remove-book-input-res-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.remove-book-input-res-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  
+  padding: 0;
+  margin: 0;
+}
+
+.remove-book-input-res-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.remove-book-input-res-container li:last-child {
+  border-bottom: none;
+}
+
+.remove-book-input-res-container button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-book-input-res-container button:hover {
+  background-color: #c0392b;
+}
+
+.remove-book-input-res-container p {
+  margin: 0;
+  color: #777;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .remove-book-container {
+    max-width: 100%;
+    margin: 20px;
+  }
+
+  
+  
+}
+
+@media (max-width: 480px) {
+  .remove-book-container {
+    margin: 30px auto;
+  }
+}

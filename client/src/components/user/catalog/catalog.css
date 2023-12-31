@@ -1,0 +1,94 @@
+/* catalog.css */
+
+.Catalog-container {
+  max-width: 80%;
+  margin: auto;
+  padding: 20px;
+  width: 100%;
+  min-width: fit-content;
+}
+
+.book {
+  background-color: rgb(76, 75, 73);
+  min-width: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+  margin: 10px;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.7s ease;
+  border: 1px solid #ddd;
+  padding: 30px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.book:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.book p {
+  font-size: 1rem;
+  color: white;
+  margin: 8px 0;
+}
+
+.book .bookName {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.catalog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 16px;
+}
+
+.book .author {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.contentCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.book-availability {
+  color: #28a745;
+  border-top: 1px solid rgb(248, 248, 248);
+  width: 10em;
+  text-align: center;
+  padding-top: 0.3em;
+  margin-top: 1em;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.book-not-available {
+  color: #ac433c;
+  border-top: 1px solid rgb(248, 248, 248);
+  width: 10em;
+  text-align: center;
+  padding-top: 0.3em;
+  margin-top: 1em;
+  font-size: larger;
+  font-weight: bold;
+}
+.book hr {
+  width: 100%;
+}

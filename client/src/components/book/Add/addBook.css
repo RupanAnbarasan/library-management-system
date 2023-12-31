@@ -1,0 +1,83 @@
+/* Common Styles */
+.add-book-container {
+  max-width: 580px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+
+}
+
+.add-book-author-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-book-name-label,
+.add-book-author-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.add-book-name-input,
+.add-book-author-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the submit button */
+.add-book-btn {
+  background-color: #22333b;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 80%;
+  border-radius: 50px;
+  align-self: center;
+}
+
+.add-book-btn:hover {
+  opacity: 0.8;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .add-book-container {
+    max-width: 100%;
+    margin: 20px;
+  }
+  .add-book-btn {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-book-container {
+    margin: 30px auto;
+    margin: 20px;
+  }
+}

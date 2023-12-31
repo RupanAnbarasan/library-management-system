@@ -1,0 +1,121 @@
+/* catalog.css */
+
+.admin-Catalog-container {
+  max-width: 80%;
+  margin: auto;
+  padding: 20px;
+  min-width: fit-content;
+  width: 100%;
+}
+.nolist{
+  text-align: center;
+  font-size: large;
+  align-self: center;
+  
+}
+.admin-book {
+  background-color: rgb(76, 75, 73);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+  margin: 10px;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.7s ease;
+}
+
+.admin-book:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin-book p {
+  font-size: 1rem;
+  color: white;
+  margin: 8px 0;
+}
+
+.admin-book .admin-bookName {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.admin-catalog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 16px;
+}
+
+.admin-book .admin-author {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(245, 235, 221);
+}
+
+.admin-contentCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title-transactions,
+.title-books{
+  
+  padding-top:0.5em;
+  font-size: xx-large;
+  color: #385360;
+}
+
+.admin-book-availability,
+.admin-book-not-available {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.admin-book-availability {
+  color: #28a745;
+  border-top: 1px solid rgb(248, 248, 248);
+  width: 10em;
+  text-align: center;
+  padding-top: 0.3em;
+  margin-top: 1em;
+}
+
+.admin-book-not-available {
+  color: #ac433c;
+  border-top: 1px solid rgb(248, 248, 248);
+  width: 10em;
+  text-align: center;
+  padding-top: 0.3em;
+  margin-top: 1em;
+}
+
+.admin-book hr {
+  width: 100%;
+}
+.show-password{
+  background-color: white;
+  border: none;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.tnxdropdown{
+  width: 20%;
+  align-self: flex-end;
+  transform: translate(-50%,-120%);
+  background-color: #4c4b49;
+  color: white;
+}

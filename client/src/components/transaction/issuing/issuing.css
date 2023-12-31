@@ -1,0 +1,180 @@
+.issue-container {
+  max-width: 580px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+.btn-issue {
+  background-color: #22333b;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 80%;
+  align-self: center;
+}
+
+.btn-issue:hover {
+  opacity: 0.8;
+}
+
+.issue-form {
+  display: flex;
+  flex-direction: column;
+  max-height: 50rem;
+  overflow-y: auto;
+}
+
+.issue-user-container,
+.selec-book-input-res-container,
+.date-box {
+  margin-bottom: 15px;
+}
+
+.issue-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.issue-form input,
+.issue-form .datepicker {
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.issue-form ul {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+  max-height: 15rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #22333b;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 1;
+  border-radius: 1em;
+  animation: fadeIn 0.5s ease;
+}
+
+
+
+.issue-form li {
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.issue-form li:last-child {
+  border-bottom: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form .userSelectbtn:hover {
+  background-color: #385360;
+  cursor: pointer;
+  border-radius: 50em;
+  animation: fadeInUp 0.3s ease-in-out;
+}
+
+.date-box {
+  display: flex;
+  flex-direction: column;
+}
+
+form .userSelectbtn {
+  background-color: #22333b;
+  color: white;
+  margin: 0;
+  padding: 15px;
+  width: 100%;
+  border: none;
+}
+
+.register-role-container {
+  position: relative;
+}
+
+.register-role-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+  border-radius: 0.3rem;
+  background-color: #22333b !important;
+  color: #fff;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(253, 253, 253);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid gray;
+}
+
+@media (max-width: 768px) {
+  .issue-form ul {
+    max-width: 80%;
+  }
+  .issue-container{
+    max-width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .issue-container{
+    max-width: 100%;
+  }
+  .issue-form ul {
+    max-width: 80%;
+  }
+}

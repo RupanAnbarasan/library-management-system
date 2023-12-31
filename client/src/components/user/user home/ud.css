@@ -1,0 +1,29 @@
+/* ud.css */
+
+.user-dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .user-dashboard-card {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .user-dashboard-card-catalog,
+  .user-dashboard-card-transaction {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+  }
+  
+  .user-dashboard-card-catalog:hover,
+  .user-dashboard-card-transaction:hover {
+    background-color: #e0e0e0;
+  }
+  
