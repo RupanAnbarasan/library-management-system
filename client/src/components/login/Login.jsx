@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import "./login.css";
+import React, { useState ,useEffect} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./login.css";
+import { useDispatch } from "react-redux";
+import { storeUser } from "./loginSlice";
+
 const Login = () => {
   const nav = useNavigate();
+  const dispatch = useDispatch();
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
   const [error, setError] = useState();
+  const [show, setShow] = useState(false);
+
   const handleChange = (e) => {
     e.preventDefault();
     setError('')
@@ -17,7 +23,6 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  const [show, setShow] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,15 +36,21 @@ const Login = () => {
         const {
           data: { role },
         } = res;
+        dispatch(storeUser({username: username, role:role,isAuthenticated:true}))
         return role === "admin"
           ? nav(`/admindashboard`)
-          : nav(`/userdashboard/${username}`);
+          : nav(`/userdashboard`);
       } else setError("check with Admin");
     } catch (error) {
       setError("*Invalid user or password");
       console.log(error.message);
     }
   };
+  
+  useEffect(() => {
+    dispatch(storeUser({isAuthenticated:false}))
+    },[dispatch])
+    
   return (
     <div className="login-container">
       <form className="form-container" onSubmit={handleSubmit}>

@@ -1,16 +1,16 @@
 import "./pt.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Nav from "../usernav/usernav";
 
 const Personaltransaction = () => {
-  const { username } = useParams();
+
+  const  username  = useSelector(state=>state.login?.username);
   const [data, setData] = useState([]);
   const [books, setBooks] = useState([]);
 
   const prop = {
-    username: username,
     PageTitle: 'Transactions',
     classname: "transaction"
   };

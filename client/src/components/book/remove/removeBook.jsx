@@ -7,18 +7,22 @@ const RemoveBook = () => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState();
 
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    const value=e;
     try {
       const response = await axios.get(
-        `http://localhost:5000/books/search/autocomplete?searchTerm=${searchTerm}`
+        `http://localhost:5000/books/search/autocomplete?searchTerm=${value}`
       );
-      console.log(response);
       if (response.data.length > 0 && response.status === 200) {
         setResults(response.data);
       } else if (response.data.length === 0) {
         setError("No books");
+        setResults([]);
+
       } else {
         setError("");
+        setResults([]);
+
       }
     } catch (error) {
       console.error("Error fetching autocomplete results:", error.message);
@@ -49,7 +53,7 @@ const RemoveBook = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            onInput={handleSearch}
+            onInput={(e) =>handleSearch(e.target.value)}
             placeholder="Search book name to delete"
           />
 

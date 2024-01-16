@@ -10,6 +10,7 @@ import Issuing from "./components/transaction/issuing/issuing";
 import Returning from "./components/transaction/returning/returning";
 import AddBook from "./components/book/Add/addBook"
 import Remove from "./components/book/remove/removeBook"
+import PrivateRoute from "./privateRoute";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
     
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route element={<PrivateRoute/>}>
 
         <Route path="/admindashboard" element={<AdminDashboard />} />
         <Route path="/register" element={<Register />} />
@@ -25,10 +27,10 @@ function App() {
         <Route path="/addbook" element={<AddBook/>}/>
         <Route path="/removebook" element={<Remove/>}/>
 
-        <Route path="/userdashboard/:username" element={<UserDashboard />} />
-        <Route path="/catalog/:username" element={<Catalog />} />
-        <Route path="/personalTransaction/:username" element={<Personaltransaction />} />
-
+        <Route path="/userdashboard" element={<UserDashboard />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/personalTransaction" element={<Personaltransaction />} />
+        </Route>
       </Routes>
     </Router>
   );

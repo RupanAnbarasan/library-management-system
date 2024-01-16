@@ -1,13 +1,10 @@
 import "./ud.css";
 import React, { useState, useEffect } from "react";
 import Nav from "../usernav/usernav";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 const UserDashboard = () => {
-  const { username } = useParams();
   const [books, setBooks] = useState([]);
   const prop = {
-    username: username,
     PageTitle: "Home",
     classname: "home",
   };

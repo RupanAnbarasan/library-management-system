@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Transaction = require("../models/transactionModel");
+const Transaction = require("../models/transactions");
 
 // Get all transactions
 router.get("/", async (req, res) => {
   try {
     const { transactionType } = req.query;
     const query = transactionType ? { transactionType } : {};
-    console.log('query',query);
     const transactions = await Transaction.find(query);    res.json(transactions);
   } catch (error) {
     res.status(500).json({ message: error.message });

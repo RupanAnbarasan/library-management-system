@@ -2,13 +2,9 @@ import './catalog.css'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "../usernav/usernav";
-import { useParams } from "react-router-dom";
-
 const Catalog = () => {
-  const { username } = useParams();
   const [data, setData] = useState([]);
   const prop = {
-    username: username,
     PageTitle: 'Catalog',
     classname:'catalog'
   }

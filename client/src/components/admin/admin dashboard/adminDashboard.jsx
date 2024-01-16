@@ -7,6 +7,9 @@ const AdminDashboard = () => {
   const [transactions, setTransactions] = useState([
     { _id: "", transactionType: "", dueDate: "", book: "", user: "" },
   ]);
+  const [data, setData] = useState([
+    { _id: "", transactionType: "", dueDate: "", book: "", user: "" },
+  ]);
   const [bookdetails, setBookDetails] = useState([]);
   const [userdetails, setUserDetails] = useState([]);
 
@@ -21,6 +24,7 @@ const AdminDashboard = () => {
           "http://localhost:5000/transactions"
         );
         if (transactions.status === 200) {
+          setData(transactions.data);
           setTransactions(transactions.data);
         }
       } catch (error) {
@@ -66,28 +70,18 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       if (e.target.value === "all") {
-        const transactions = await axios.get(
-          "http://localhost:5000/transactions"
+        setTransactions(data);
+      } else if (e.target.value === "returned") {
+        const returned = data.filter(
+          (transaction) => transaction.transactionType === "returned"
         );
-        if (transactions.status === 200) {
-          setTransactions(transactions.data);
-        }
-      }
-      else if (e.target.value === "returned") {
-        const transactions = await axios.get(
-          "http://localhost:5000/transactions?transactionType=returned"
+        console.log(returned);
+        setTransactions(returned);
+      } else {
+        const borrowed = data.filter(
+          (transaction) => transaction.transactionType === "borrowed"
         );
-        if (transactions.status === 200) {
-          setTransactions(transactions.data);
-        }
-      }
-      else {
-        const transactions = await axios.get(
-          "http://localhost:5000/transactions?transactionType=borrowed"
-        );
-        if (transactions.status === 200) {
-          setTransactions(transactions.data);
-        }
+        setTransactions(borrowed);
       }
     } catch (error) {
       console.error(error.message);
@@ -96,7 +90,6 @@ const AdminDashboard = () => {
   return (
     <main>
       <Nav active={"home"} pageTitle={"Home"} />
-
       <section className="admin-contentCenter">
         <h2 className="title-books"> Books</h2>
         <div className="admin-Catalog-container">
@@ -130,14 +123,14 @@ const AdminDashboard = () => {
       <hr />
 
       <section>
-      <div className="admin-contentCenter">
-        <h2 className="title-transactions">Transactions</h2>
-        <select className='tnxdropdown' onChange={(e) => handleSeprate(e)}>
-          <option value="all">All</option>
-          <option value="returned">Returned</option>
-          <option value="borrowed">Borrowed</option>
-        </select>
-        
+        <div className="admin-contentCenter">
+          <h2 className="title-transactions">Transactions</h2>
+          <select className="tnxdropdown" onChange={(e) => handleSeprate(e)}>
+            <option value="all">All</option>
+            <option value="returned">Returned</option>
+            <option value="borrowed">Borrowed</option>
+          </select>
+
           <div className="personal-transaction-container">
             {transactions.length > 0 ? (
               transactions.map((a, index) => (

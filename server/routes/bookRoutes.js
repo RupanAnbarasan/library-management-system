@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Book = require("../models/bookModel");
+const Book = require("../models/books");
 
 // Get all books
 router.get("/", async (req, res) => {
@@ -28,9 +28,13 @@ router.get("/:id", async (req, res) => {
 
 // autocomplete availability == true
 router.get("/search/autocomplete", async (req, res) => {
-  try {
-    const { searchTerm } = req.query;
-
+  const { searchTerm } = req.query;
+  if (searchTerm.length==0) {
+    console.log('sample');
+    return res.json([])
+  }
+else{
+  try {    
     // Perform a case-insensitive search for books with a name starting with the searchTerm
     const books = await Book.find({
       name: { $regex: `^${searchTerm}`, $options: "i" },
@@ -41,7 +45,7 @@ router.get("/search/autocomplete", async (req, res) => {
     res.json(arr);
   } catch (error) {
     res.status(500).json({ message: error.message });
-  }
+  }}
 });
 
 // autocomplete availability == false
@@ -95,6 +99,7 @@ router.patch("/:id", async (req, res) => {
 
     if (book) {
       book.availability = req.body.availability;
+      console.log(book);
       const updatedBook = await book.save();
       res.json(updatedBook);
     } else {
